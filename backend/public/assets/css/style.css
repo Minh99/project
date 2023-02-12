@@ -1,0 +1,111 @@
+#search-top-left,
+#search-top-right {
+    /* width: 50%; */
+}
+
+.input-date {
+    width: 30%;
+    height: 25px;
+}
+
+.input-select-box {
+    width: 80%;
+    height: 25px;
+}
+
+.form-group {
+    margin-bottom: 0.1rem;
+}
+
+#search-top-right {
+    /* margin-top: 2.96%; */
+}
+
+#search-top-left,
+#search-top-right {
+    background-color: #e2e4e8;
+}
+
+.search-top-image-question {
+    width: 3%;
+    height: 3%;
+}
+
+.search-top-image-excel-logo {
+    width: 10%;
+    height: 10%;
+    top: 5%;
+    left: 80%;
+}
+
+#search-top-right-color {
+    /* margin-left: 20%; */
+}
+
+.input-select-box-right {
+    width: 80%;
+    height: 25px;
+}
+
+.lable-search-top {
+    font-weight: 500;
+}
+
+.search-box {
+    min-height: 190px;
+}
+
+.label-show-date {
+    width: 100%;
+    height: 10px;
+    margin-bottom: 50px;
+}
+
+.buton-label-show-date {
+    right: 2%;
+    position: absolute;
+    margin-top: 15px;
+}
+
+.table-show-infomation {
+    border: 0.5px solid #d4d1cc;
+}
+
+#cell-2 {
+    font-weight: 600;
+}
+
+.table-name-column {
+    border: 0.5px solid #d4d1cc;
+    background-color: #d4d1cc;
+}
+
+.nav-item {
+    background-color: #d4d1cc;
+    color: black;
+    font-weight: 600;
+    border: 0.5px solid #d4d1cc;
+}
+
+#tab-content-admin {
+    width: 100%;
+    /* position: absolute; */
+    padding: 10px
+}
+
+@media (min-width:992px) {
+    .vertical-nav {
+        position: fixed;
+        top: 56px;
+        left: 0;
+        width: 200px;
+        height: 100%;
+        background-color: #f8f8f8;
+        overflow-y: auto;
+    }
+    #tab-content-admin {
+        width: 100%;
+        /* position: absolute; */
+        padding: 10px 0 0 210px;
+    }
+}
