@@ -17,243 +17,112 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 50px;">
         <p style="right: 5%; position: absolute;align-items: center; margin-bottom:0px ;">Đỗ Đức Anh</p>
     </nav>
-    <div id="search-top" class="search-box row ml-2 mr-2 d-flex flex-row">
-        <div id="search-top-left" class="col-6">
-            <div class="form-group">
-                <label class="lable-search-top">Ngày đăng:</label>
-                <div>
-                    <input type="date" class="input-date" id="" aria-describedby="emailHelp" />
-                    <input type="date" class="ml-2 input-date" id="" aria-describedby="emailHelp" />
-                </div>
-            </div>
-            <div class="form-group mt-1">
-                <label for="" class="lable-search-top">Loại công bố:</label>
-                <div>
-                    <select class="input-select-box">
-                        <option value="1">ddd</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="" class="lable-search-top">Tỉnh/Thành phố nơi đặt trụ sở chính:</label>
-                <div>
-                    <select class="input-select-box">
-                        <option value="1">ddd</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div id="search-top-right" class="col-6">
-            <div id="search-top-right-color">
-                <div class="form-group">
-                    <label for="" class="lable-search-top">Mã số doanh nghiệp*:</label>
-                    <div class="">
-                        <input type="" class="input-select-box-right" id=""
-                            aria-describedby="emailHelp" />
+    <section>
+        <div style="background-color: #919191">
+            <div class="container" >
+                <form>
+                    <div class="row">
+                        <div class="col-6 px-4 py-2">
+                            <div class="form-group">
+                                <label class="d-block my-2"> Ngày đăng </label>
+                                <div class="row container">
+                                    <input type="date" class="col-5 form-control" id="" />
+                                    <span class="col-1 text-center" > - </span>
+                                    <input type="date" class="col-5 form-control" id="" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="d-block my-2"> Loại công bố </label>
+                                <input type="text" class="form-control" id="" />
+                            </div>
+                            <div class="form-group">
+                                <label class="d-block my-2"> Tỉnh/Tp nơi đặt trụ sợ chính </label>
+                                <input type="text" class="form-control" id="" />
+                            </div>
+                        </div>
+                        <div class="col-6 px-4 py-2">
+                            <div class="form-group">
+                                <label class="d-block my-2"> Mã số doanh nghiệp </label>
+                                <input type="text" class="form-control" id="" />
+                            </div>
+                            <div class="form-group">
+                                <label class="d-block my-2"> Tên doanh nghiệp </label>
+                                <input type="text" class="form-control" id="" />
+                            </div>
+                            <div class="form-group">
+                                <label class="d-block my-2"> &nbsp; </label>
+                                <button style="width: fit-content; float: right" class="btn btn-primary form-control">Tìm kiếm</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <label for="" class="lable-search-top">Tên doanh nghiệp:</label>
-                    <div class="">
-                        <input type="" class="input-select-box-right" id=""
-                            aria-describedby="emailHelp" />
+                </form>
+            </div>
+        </div>
+        <div class="container">
+            <div class="ml-2 mr-2" id="frame-bottom">
+                <ul class="nav nav-tabs nav-fill" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-item nav-link active" data-toggle="tab" href="/category_id=1" role="tab">Đăng kí mới</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" data-toggle="tab" href="/category_id=2" role="tab">Đăng kí thay đổi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" data-toggle="tab" href="/category_id=3" role="tab">Thông báo thay đổi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" data-toggle="tab" href="/category_id=4" role="tab">Vi phạm/Thu hồi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" data-toggle="tab" href="/category_id=5" role="tab">Gải thể</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-item nav-link" data-toggle="tab" href="/category_id=6" role="tab">Loại khác</a>
+                    </li>
+                </ul>
+                <!-- Tab panes -->
+                <span class="text-primary py-2 d-block"> <i> {{ $now }} </i></span>
+                @if (count($dns) == 0)
+                    <div class="alert alert-danger" role="alert">
+                        Không có kết quả nào.
                     </div>
-                </div>
+                @else
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tabs-1" role="tabpanel">
+                            <table class="table table-striped table-responsive table-bordered">
+                                <thead>
+                                    <tr style="background-color: #919191">
+                                        <th scope="col">Thời gian</th>
+                                        <th scope="col"> Tên doanh nghiệp
+                                        </th>
+                                        <th scope="col"> MS doanh nghiệp </th>
+                                        <th scope="col">Địa điểm</th>
+                                        <th scope="col">Loại thông báo</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($dns as $dn)
+                                        <tr>
+                                            <td>{{ $dn->thoi_gian }}</td>
+                                            <td>{{ $dn->ten }}</td>
+                                            <td>{{ $dn->ma_so }}</td>
+                                            <td>{{ $dn->dia_chi }}</td>
+                                            <td>{{ $dn->loai_thong_bao }}</td>
+                                            <td><a href="#">PDF</a></td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                @endif
+                
             </div>
         </div>
-    </div>
-    <div class="ml-2 mr-2" id="frame-bottom">
-        <ul class="nav nav-tabs" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Đăng kí mới</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Đăng kí thay đổi</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">Thông báo thay đổi</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#tabs-4" role="tab">Vi phạm/Thu hồi</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#tabs-5" role="tab">Gải thể</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#tabs-6" role="tab">Loại khác</a>
-            </li>
-        </ul>
-        <!-- Tab panes -->
-        <div class="label-show-date">
-            <label style="font-weight: 600;color: blue;margin-top: 6px;" for="">Thứ Bảy, 4 Tháng Hai,
-                2023</label>
-            <button class="buton-label-show-date">Tìm báo cáo</button>
-        </div>
-        <div class="tab-content">
-            <div class="tab-pane active" id="tabs-1" role="tabpanel">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th class="table-name-column" scope="col">Thời gian</th>
-                            <th class="table-name-column" scope="col" style="width:40%"> Tên, mã số doanh nghiệp
-                            </th>
-                            <th class="table-name-column" scope="col"> Mã số doanh nghiệp </th>
-                            <th class="table-name-column" scope="col">Địa điểm</th>
-                            <th class="table-name-column" scope="col">Loại thông báo</th>
-                            <th class="table-name-column" scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="table-show-infomation">34264fsfdf</td>
-                            <td id="cell-2" class="table-show-infomation"> CÔNG TY TNHH XÂY hDỰNG DỊCH VỤ VÀ THƯƠNG
-                                MẠI
-                                ĐỨC HIẾU </td>
-                            <td class="table-show-infomation">MÃ SỐ DN:233534534</td>
-                            <td class="table-show-infomation">Tỉnh Tuyên Quang</td>
-                            <td class="table-show-infomation">Đăng kí mới</td>
-                            <td class="table-show-infomation"><a href="">click</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane" id="tabs-2" role="tabpanel">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th class="table-name-column" scope="col">Thời gian</th>
-                            <th class="table-name-column" scope="col" style="width:40%"> Tên, mã số doanh nghiệp
-                            </th>
-                            <th class="table-name-column" scope="col"> Mã số doanh nghiệp </th>
-                            <th class="table-name-column" scope="col">Địa điểm</th>
-                            <th class="table-name-column" scope="col">Loại thông báo</th>
-                            <th class="table-name-column" scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="table-show-infomation">34264fsfdf</td>
-                            <td id="cell-2" class="table-show-infomation"> CÔNG TY TNHH XÂY DỰNG DỊCH VỤ VÀ THƯƠNG
-                                MẠI
-                                ĐỨC HIẾU </td>
-                            <td class="table-show-infomation">MÃ SỐ DN:233534534</td>
-                            <td class="table-show-infomation">Tỉnh Tuyên Quang</td>
-                            <td class="table-show-infomation">Đăng kí mới</td>
-                            <td class="table-show-infomation"><a href="">click</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane" id="tabs-3" role="tabpanel">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th class="table-name-column" scope="col">Thời gian</th>
-                            <th class="table-name-column" scope="col" style="width:40%"> Tên, mã số doanh nghiệp
-                            </th>
-                            <th class="table-name-column" scope="col"> Mã số doanh nghiệp </th>
-                            <th class="table-name-column" scope="col">Địa điểm</th>
-                            <th class="table-name-column" scope="col">Loại thông báo</th>
-                            <th class="table-name-column" scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="table-show-infomation">34264fsfdf</td>
-                            <td id="cell-2" class="table-show-infomation"> CÔNG TY TNHH XÂY hDỰNG DỊCH VỤ VÀ THƯƠNG
-                                MẠI
-                                ĐỨC HIẾU </td>
-                            <td class="table-show-infomation">MÃ SỐ DN:233534534</td>
-                            <td class="table-show-infomation">Tỉnh Tuyên Quang</td>
-                            <td class="table-show-infomation">Đăng kí mới</td>
-                            <td class="table-show-infomation"><a href="">click</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane" id="tabs-4" role="tabpanel">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th class="table-name-column" scope="col">Thời gian</th>
-                            <th class="table-name-column" scope="col" style="width:40%"> Tên, mã số doanh nghiệp
-                            </th>
-                            <th class="table-name-column" scope="col"> Mã số doanh nghiệp </th>
-                            <th class="table-name-column" scope="col">Địa điểm</th>
-                            <th class="table-name-column" scope="col">Loại thông báo</th>
-                            <th class="table-name-column" scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="table-show-infomation">34264fsfdf</td>
-                            <td id="cell-2" class="table-show-infomation"> CÔNG TY TNHH XÂY hDỰNG DỊCH VỤ VÀ THƯƠNG
-                                MẠI
-                                ĐỨC HIẾU </td>
-                            <td class="table-show-infomation">MÃ SỐ DN:233534534</td>
-                            <td class="table-show-infomation">Tỉnh Tuyên Quang</td>
-                            <td class="table-show-infomation">Đăng kí mới</td>
-                            <td class="table-show-infomation"><a href="">click</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane" id="tabs-5" role="tabpanel">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th class="table-name-column" scope="col">Thời gian</th>
-                            <th class="table-name-column" scope="col" style="width:40%"> Tên, mã số doanh nghiệp
-                            </th>
-                            <th class="table-name-column" scope="col"> Mã số doanh nghiệp </th>
-                            <th class="table-name-column" scope="col">Địa điểm</th>
-                            <th class="table-name-column" scope="col">Loại thông báo</th>
-                            <th class="table-name-column" scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="table-show-infomation">34264fsfdf</td>
-                            <td id="cell-2" class="table-show-infomation"> CÔNG TY TNHH XÂY hDỰNG DỊCH VỤ VÀ THƯƠNG
-                                MẠI
-                                ĐỨC HIẾU </td>
-                            <td class="table-show-infomation">MÃ SỐ DN:233534534</td>
-                            <td class="table-show-infomation">Tỉnh Tuyên Quang</td>
-                            <td class="table-show-infomation">Đăng kí mới</td>
-                            <td class="table-show-infomation"><a href="">click</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="tab-pane" id="tabs-6" role="tabpanel">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th class="table-name-column" scope="col">Thời gian</th>
-                            <th class="table-name-column" scope="col" style="width:40%"> Tên, mã số doanh nghiệp
-                            </th>
-                            <th class="table-name-column" scope="col"> Mã số doanh nghiệp </th>
-                            <th class="table-name-column" scope="col">Địa điểm</th>
-                            <th class="table-name-column" scope="col">Loại thông báo</th>
-                            <th class="table-name-column" scope="col"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="table-show-infomation">34264fsfdf</td>
-                            <td id="cell-2" class="table-show-infomation"> CÔNG TY TNHH XÂY hDỰNG DỊCH VỤ VÀ THƯƠNG
-                                MẠI
-                                ĐỨC HIẾU </td>
-                            <td class="table-show-infomation">MÃ SỐ DN:233534534</td>
-                            <td class="table-show-infomation">Tỉnh Tuyên Quang</td>
-                            <td class="table-show-infomation">Đăng kí mới</td>
-                            <td class="table-show-infomation"><a href="">click</a></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+    </section>
+    
+   
     <!-- core  -->
     <script src="{{ asset('assets/vendors/jquery/jquery-3.4.1.js') }}"></script>
     <script src="{{ asset('assets/vendors/bootstrap/bootstrap.bundle.js') }}"></script>

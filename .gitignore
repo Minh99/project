@@ -1,0 +1,4 @@
+backend/mysql/*
+backend/nginx/log/*
+backend/public/CUsersThis PCDocumentsFREELANCEpythonstesttestsrcbackendstoragelogs/laravel.log
+tool/__pycache__/crawl.cpython-39.pyc

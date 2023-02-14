@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DoanhNghiepController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/', [DoanhNghiepController::class, 'index'])->name('home');
+
+Route::get('/admin', function () {
+    return view('admin.index');
 });

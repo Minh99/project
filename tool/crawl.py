@@ -8,12 +8,13 @@ from time import sleep
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import StaleElementReferenceException
 
+data = []
 
 def initDriverProfile():
     CHROME_DRIVER_PATH = './chromedriver'
     WINDOW_SIZE = "1000,1000"
     chrome_options = Options()
-    chrome_options.add_argument("--headless")
+    # chrome_options.add_argument("--headless")
     chrome_options.add_argument("--start-maximized")
     # chrome_options.add_argument("--window-size=%s" % WINDOW_SIZE)
     chrome_options.add_argument('--no-sandbox')
@@ -49,8 +50,7 @@ def initDriverProfile():
     # chrome_options.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2})
     # chrome_options.add_argument('disable-infobars')
 
-    driver = webdriver.Chrome(
-        executable_path=CHROME_DRIVER_PATH, options=chrome_options)
+    driver = webdriver.Chrome(executable_path=CHROME_DRIVER_PATH, options=chrome_options)
 
     return driver
 
@@ -67,13 +67,11 @@ def crawlContent(driver, xpath):
     # tbody = table.find_element(By.TAG_NAME, 'tbody')
     currentPage = 1
     done = False
-    contents = []
 
     while True:
         driver.refresh()
         sleep(2)
-        print(contents)
-        if done:
+        if currentPage == 3:
             break
         try:
             footer = driver.find_element(By.CSS_SELECTOR, "#footer")
@@ -93,10 +91,13 @@ def crawlContent(driver, xpath):
             for row in rows:
                 cells = row.find_elements(By.TAG_NAME, "td")
                 print("=============")
+                contents = []
                 for cell in cells:
-                    #     # contents.append(cell.text)
-                    print(cell.text)
-                    writeFileTxt('test.csv', cell.text)
+                    contents.append(cell.text)
+                    # print(cell.text)
+                    # writeFileTxt('test.csv', cell.text)
+                data.append(contents)
+                # print(data)
 
                 if (row.get_attribute("class") == "Pager"):
                     tablePage = driver.find_elements(By.XPATH, "//table")[1]
@@ -133,7 +134,7 @@ def crawlContent(driver, xpath):
         except StaleElementReferenceException:
             pass
 
-    # driver.quit()
+    return data
 
 
 def writeFileTxt(fileName, content):
@@ -160,8 +161,14 @@ def download_file(url, localFileNameParam="", idPost="123456", pathName="/data/"
 
 
 def run():
-    driver = initDriverProfile()
-    crawlContent(driver, '')
-    crawlContent(
-        driver, '''//*[@id="ctl00_C_RptProdGroups_ctl02_EGZDivItem"]''')
+    options = webdriver.ChromeOptions()
+    options.add_argument("--headless")
+    options.add_argument("--start-maximized")
+    options.add_experimental_option('excludeSwitches', ['enable-logging', 'enable-automation'])
+    driver = webdriver.Chrome(options=options)
+    categories = ['']
+    for category in categories:
+        crawlContent(driver, category)
     driver.quit()
+    return data
+    

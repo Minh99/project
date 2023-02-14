@@ -51,6 +51,19 @@
     font-weight: 500;
 }
 
+.nav-tabs .nav-item {
+    margin-bottom: 0px !important;
+}
+
+th,
+td {
+    vertical-align: middle !important;
+}
+
+th {
+    text-align: center !important;
+}
+
 .search-box {
     min-height: 190px;
 }
@@ -67,17 +80,8 @@
     margin-top: 15px;
 }
 
-.table-show-infomation {
-    border: 0.5px solid #d4d1cc;
-}
-
 #cell-2 {
     font-weight: 600;
-}
-
-.table-name-column {
-    border: 0.5px solid #d4d1cc;
-    background-color: #d4d1cc;
 }
 
 .nav-item {
